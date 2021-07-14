@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/14 20:34:56 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/14 21:06:53 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,36 @@ void profil_init()
     }
 }
 
+void creat_threads()
+{
+    int i;
+    t_init *all;
+    
+    all = iniit_t();
+    i = 0;
+    while (i < all->nbr_of_philo)
+    {
+        pthread_create(&all->philos[i], NULL, main_philos, &i);
+        usleep(100);
+        i++;
+    }
+    
+}
+
+void join_threads()
+{
+    int i;
+    t_init *all;
+    
+    all = iniit_t();
+    i = 0;
+    while (i < all->nbr_of_philo)
+    {
+        pthread_join(all->philos[i], NULL);
+        i++;
+    }
+}
+
 int main(int ac, char **av)
 {
     t_init *all;
@@ -60,12 +90,8 @@ int main(int ac, char **av)
     {
         init_args(ac, av);
         profil_init();
-        
-        
-        
-        
-
-        // printf("[[%d]]\n", all->profile[0].p_id);
+        creat_threads();
+        join_threads();
     }
     return (1);
 }

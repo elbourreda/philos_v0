@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:59 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/14 20:29:22 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/14 21:06:35 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,11 @@ typedef struct s_init
     t_philo *profile;
     pthread_t *philos;
 } t_init;
+
+
+void *main_philos(void *args);
+t_init	*iniit_t(void);
+
+
 
 #endif
