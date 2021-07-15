@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 20:48:42 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/15 16:22:22 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/15 21:52:35 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ void *main_philos(void *args)
         
         pthread_mutex_lock(&all->forks[profil->p_id % all->nbr_of_philo]);
         printf("%ld | %d has taken a right fork\n", current_time(),  profil->p_id);
+
+        //last eat
+        // all->profile[profil->p_id - 1].last_eat = get_in_mic();
 
         //start eating
         printf("%ld | %d is eating\n", current_time(),  profil->p_id);

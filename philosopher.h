@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:59 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/15 16:43:34 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/15 16:57:41 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_init
     long sleep_time;
     long die_time;
     int nbr_eat;
+    long start;
     pthread_mutex_t *forks;
     t_philo *profile;
     pthread_t *philos;
@@ -40,7 +41,7 @@ typedef struct s_init
 
 void *main_philos(void *args);
 t_init	*iniit_t(void);
-
+long current_time();
 
 
 #endif
