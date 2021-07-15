@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/14 21:06:53 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:48:05 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,13 @@ void init_args(int ac, char **av)
         all->nbr_eat = atoi(av[5]);
     all->philos = malloc(sizeof(t_init *) * all->nbr_of_philo);
     all->profile = malloc(sizeof(t_philo *) * all->nbr_of_philo); 
-    pthread_mutex_init(&all->forks, NULL);
+    all->forks = malloc(sizeof(pthread_mutex_t *) * all->nbr_of_philo);
+    int i = 0;
+    while (i < all->nbr_of_philo)
+    {
+        pthread_mutex_init(&all->forks[i], NULL); 
+        i++;
+    }
 }
 
 void profil_init()
@@ -45,6 +51,7 @@ void profil_init()
     int i = 0;
     while (i < all->nbr_of_philo)
     {
+        
         all->profile[i].p_id = i + 1;
         all->profile[i].p_nbr_philo =  all->nbr_of_philo;
         i++;
@@ -60,7 +67,7 @@ void creat_threads()
     i = 0;
     while (i < all->nbr_of_philo)
     {
-        pthread_create(&all->philos[i], NULL, main_philos, &i);
+        pthread_create(&all->philos[i], NULL, main_philos, &all->profile[i]);
         usleep(100);
         i++;
     }
