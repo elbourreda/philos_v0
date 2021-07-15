@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/15 15:48:05 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/15 16:43:47 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void profil_init()
     int i = 0;
     while (i < all->nbr_of_philo)
     {
-        
         all->profile[i].p_id = i + 1;
-        all->profile[i].p_nbr_philo =  all->nbr_of_philo;
         i++;
     }
 }
