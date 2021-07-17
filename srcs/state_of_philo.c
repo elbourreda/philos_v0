@@ -6,11 +6,11 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 20:48:42 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 14:47:34 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 15:56:23 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosopher.h"
+#include "../includes/philosopher.h"
 
 
 
