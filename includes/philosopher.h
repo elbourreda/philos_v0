@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:59 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/16 21:20:40 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 19:28:46 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_philo
 {
     int p_id;
     long start_eats;
+    int nbr_times_eat;
 } t_philo;
 
 
@@ -41,11 +42,16 @@ typedef struct s_init
 
 } t_init;
 
-// long *sart_eat;
-//  long old9;
-void *main_philos(void *args);
-t_init	*iniit_t(void);
-long current_time();
-
-long	get_in_mic(void);
+void	new_print(char *str, int n, int die);
+void    *main_philos(void *args);
+t_init  *iniit_t(void);
+long    current_time();
+long    current_time_micr(void);
+int check_valid_args();
+int init_args(int ac, char **av);
+int check_life();
+void join_threads();
+void creat_threads();
+void profil_init();
+void ft_usleep(long  time);
 #endif

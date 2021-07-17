@@ -6,7 +6,7 @@
 #    By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/14 20:13:43 by rel-bour          #+#    #+#              #
-#    Updated: 2021/07/17 15:57:50 by rel-bour         ###   ########.fr        #
+#    Updated: 2021/07/17 19:29:20 by rel-bour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,7 @@ CC = gcc  -fsanitize=address
 
 CFLAGS = -Wall -Wextra -Werror   
 
-SRC = srcs/philosophers.c \
-		srcs/state_of_philo.c
+SRC = srcs/philosophers.c srcs/state_of_philo.c srcs/utils_philo.c
 	
 all : $(NAME)
 
