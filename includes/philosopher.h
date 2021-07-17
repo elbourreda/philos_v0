@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:59 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 19:28:46 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 21:45:12 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ typedef struct s_init
 void	new_print(char *str, int n, int die);
 void    *main_philos(void *args);
 t_init  *iniit_t(void);
-long    current_time();
+long    current_time(void);
 long    current_time_micr(void);
 int check_valid_args();
 int init_args(int ac, char **av);
-int check_life();
-void join_threads();
-void creat_threads();
-void profil_init();
+int check_life(void);
+void join_threads(void);
+void creat_threads(void);
+void profil_init(void);
 void ft_usleep(long  time);
+int	ft_isdigit(char nb);
 #endif

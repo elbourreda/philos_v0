@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state_of_philo.c                                   :+:      :+:    :+:   */
+/*   routine_philo.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 20:48:42 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 19:34:08 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 21:44:39 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosopher.h"
+
+void	profil_init(void)
+{
+	t_init	*all;
+	int		i;
+
+	all = iniit_t();
+	i = 0;
+	while (i < all->nbr_of_philo)
+	{
+		all->profile[i].p_id = i + 1;
+		i++;
+	}
+}
 
 void ft_usleep(long  time)
 {
@@ -23,6 +37,14 @@ void ft_usleep(long  time)
 	while ((current_time_micr() - microb) < (time * 1000))
 	{
 	}
+}
+
+int	ft_isdigit(char nb)
+{
+	if ((nb >= '0' && nb <= '9'))
+		return (1);
+	else
+		return (0);
 }
 
 void *main_philos(void *args)
