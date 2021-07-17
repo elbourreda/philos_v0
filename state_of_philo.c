@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 20:48:42 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/16 21:26:04 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 14:47:34 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void *main_philos(void *args)
         
         //start eating
         // printf("%ld | %d is eating\n", current_time(),  profil->p_id);
-         new_print("is eating", profil->p_id);
+        new_print("is eating", profil->p_id);
         
         // sart_eat[profil->p_id - 1] = get_in_mic();
         profil->start_eats = get_in_mic();
