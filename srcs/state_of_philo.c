@@ -6,15 +6,13 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 20:48:42 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 15:59:58 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 16:01:16 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosopher.h"
 
-
-
- long	get_in_mic(void)
+long    get_in_mic(void)
 {
 	struct timeval	time;
 	long 		h;
@@ -25,7 +23,6 @@
 }
 
 void ft_usleep(long  time)
-
 {
 	long 	microb;
 	long 	r;
@@ -37,6 +34,7 @@ void ft_usleep(long  time)
 	{	
 	}
 }
+
 long current_time()
 {
     long time_now;

@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 15:56:36 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 16:08:07 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_init	*iniit_t(void)
 
 	return (&all);
 }
+
 int check_valid_args()
 {
     t_init *all;
@@ -30,6 +31,7 @@ int check_valid_args()
         return (2);
     return (0);
 }
+
 int init_args(int ac, char **av)
 {
     t_init *all;
@@ -44,9 +46,9 @@ int init_args(int ac, char **av)
         all->nbr_eat = atoi(av[5]);
     if (check_valid_args() == 2)
         return (2);
-    all->philos = malloc(sizeof(t_init *) * all->nbr_of_philo);
+    all->philos = malloc(sizeof(t_init ) * all->nbr_of_philo);
     all->profile = malloc(sizeof(t_philo) * all->nbr_of_philo); 
-    all->forks = malloc(sizeof(pthread_mutex_t *) * all->nbr_of_philo);
+    all->forks = malloc(sizeof(pthread_mutex_t ) * all->nbr_of_philo);
     int i = 0;
     while (i < all->nbr_of_philo)
     {
@@ -157,5 +159,6 @@ int main(int ac, char **av)
             return (1);
         join_threads();
     }
+    
     return (0);
 }
