@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 15:25:39 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/17 15:43:32 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,11 +128,8 @@ int check_life()
         int i = 0;
         while (i < all->nbr_of_philo)
         {
-            // printf("=> %d = [%ld]\n", i,(get_in_mic() - all->profile[i].start_eats) / 1000);
-            long time
             if ((get_in_mic() - all->profile[i].start_eats) >= (all->die_time * 1000))
             {
-                
                 print_exit("is dead", i + 1);
                 printf("=> [%ld]\n", (get_in_mic() - all->profile[i].start_eats) / 1000);
                 return 1;
