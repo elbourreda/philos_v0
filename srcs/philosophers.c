@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/18 15:52:13 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 19:34:05 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	creat_threads(void)
 	i = 0;
 	while (i < all->nbr_of_philo)
 	{
-		all->profile[i].nbr_times_eat = 0;
 		all->profile[i].start_eats = current_time_micr();
 		pthread_create(&all->philos[i], NULL, main_philos, &all->profile[i]);
 		usleep(100);
@@ -43,62 +42,45 @@ void	join_threads(void)
 	}
 }
 
+int	status_life(int i, long is_philo_die)
+{
+	t_init	*all;
+
+	all = iniit_t();
+	is_philo_die = (current_time_micr() - all->profile[i].start_eats);
+	if (is_philo_die >= (all->die_time * 1000))
+	{
+		new_print("is dead", i + 1, 2);
+		return (1);
+	}
+	return (0);
+}
+
 int	check_life(void)
 {
 	t_init	*all;
 	int		i;
 	long	is_philo_die;
-	int done_eating;
+	int		done_eating;
+
 	all = iniit_t();
 	while (1)
 	{
-		i = 0;
+		i = -1;
 		done_eating = 0;
-		while (i < all->nbr_of_philo)
+		while (++i < all->nbr_of_philo)
 		{
-			is_philo_die = (current_time_micr() - all->profile[i].start_eats);
-			if (is_philo_die >= (all->die_time * 1000))
-			{
-				new_print("is dead", i + 1, 2);
+			if (status_life(i, done_eating) == 1)
 				return (1);
+			if (all->nbr_eat != -1 \
+				&& all->profile[i].nbr_times_eat >= all->nbr_eat)
+			{	
+				done_eating++;
+				if (done_eating == all->nbr_of_philo)
+					return (1);
 			}
-			// if (all->nbr_eat != -1
-			// 	&& all->profile[i].nbr_times_eat >= all->nbr_eat)
-			// 		done_eating++;
-			// i++;
 		}
-		// if (done_eating >= all->nbr_eat)
-		// 	return (1);
 		usleep(15);
-	}
-	return (0);
-}
-
-int	secend_check(int ac, char **av)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (ac != 5 && ac != 6)
-	{
-		printf("Error: Number of arguments not valid\n");
-		return (2);
-	}
-	while (av[++i])
-	{
-		j = 0;
-		if (av[i][j] == '+' || av[i][j] == '-')
-			j++;
-		while (av[i][j] != '\0')
-		{
-			if (ft_isdigit(av[i][j]) != 1)
-			{
-				printf("Error: arguments not valid\n");
-				return (2);
-			}
-			j++;
-		}
 	}
 	return (0);
 }

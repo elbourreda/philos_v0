@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 20:48:42 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/18 16:03:04 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 19:35:03 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,6 @@ void	profil_init(void)
 		all->profile[i].p_id = i + 1;
 		i++;
 	}
-}
-
-void ft_usleep(long  time)
-{
-	long 	microb;
-	long 	r;
-
-	microb = current_time_micr();
-	r = time - 60;
-	usleep(r * 1000);
-	while ((current_time_micr() - microb) < (time * 1000))
-	{
-	}
-}
-
-int	ft_isdigit(char nb)
-{
-	if ((nb >= '0' && nb <= '9'))
-		return (1);
-	else
-		return (0);
 }
 
 void *main_philos(void *args)
@@ -72,7 +51,6 @@ void *main_philos(void *args)
         //start eating
         new_print("is eating", profil->p_id, 1);
 
-        
         // waiting time to eat
         usleep(all->eat_time * 1000);
         // ft_usleep(all->eat_time);

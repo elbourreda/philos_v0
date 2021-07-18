@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:59 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/18 15:51:39 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 19:36:17 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void profil_init(void);
 void ft_usleep(long  time);
 int	ft_isdigit(char nb);
 long	ft_atoi(char *str);
+int	secend_check(int ac, char **av);
 #endif
