@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 21:45:18 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 15:52:13 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	creat_threads(void)
 	i = 0;
 	while (i < all->nbr_of_philo)
 	{
+		all->profile[i].nbr_times_eat = 0;
 		all->profile[i].start_eats = current_time_micr();
 		pthread_create(&all->philos[i], NULL, main_philos, &all->profile[i]);
 		usleep(100);
@@ -47,11 +48,12 @@ int	check_life(void)
 	t_init	*all;
 	int		i;
 	long	is_philo_die;
-
+	int done_eating;
 	all = iniit_t();
 	while (1)
 	{
 		i = 0;
+		done_eating = 0;
 		while (i < all->nbr_of_philo)
 		{
 			is_philo_die = (current_time_micr() - all->profile[i].start_eats);
@@ -60,11 +62,13 @@ int	check_life(void)
 				new_print("is dead", i + 1, 2);
 				return (1);
 			}
-			if (all->nbr_eat != -1
-				&& all->profile[i].nbr_times_eat >= all->nbr_eat)
-				return (1);
-			i++;
+			// if (all->nbr_eat != -1
+			// 	&& all->profile[i].nbr_times_eat >= all->nbr_eat)
+			// 		done_eating++;
+			// i++;
 		}
+		// if (done_eating >= all->nbr_eat)
+		// 	return (1);
 		usleep(15);
 	}
 	return (0);

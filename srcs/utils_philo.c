@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 19:22:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/17 19:56:45 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 15:51:51 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ int init_args(int ac, char **av)
 
     i = 0;
     all = iniit_t();
-    all->nbr_of_philo = atoi(av[1]);
-    all->die_time = atoi(av[2]);
-    all->eat_time = atoi(av[3]);
-    all->sleep_time = atoi(av[4]);
+    all->done_eat = 0;
+    all->nbr_of_philo = ft_atoi(av[1]);
+    all->die_time = ft_atoi(av[2]);
+    all->eat_time = ft_atoi(av[3]);
+    all->sleep_time = ft_atoi(av[4]);
     if (ac == 6)
-        all->nbr_eat = atoi(av[5]);
+        all->nbr_eat = ft_atoi(av[5]);
     else
         all->nbr_eat = -1;
     
@@ -55,7 +56,7 @@ int init_args(int ac, char **av)
     all->forks = malloc(sizeof(pthread_mutex_t ) * all->nbr_of_philo);
     while (i < all->nbr_of_philo)
     {
-        all->profile[i].nbr_times_eat = 0;
+        
         pthread_mutex_init(&all->forks[i], NULL); 
         i++;
     }
