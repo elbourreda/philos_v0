@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:41:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/18 19:34:05 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 20:25:11 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,6 @@ void	creat_threads(void)
 		all->profile[i].start_eats = current_time_micr();
 		pthread_create(&all->philos[i], NULL, main_philos, &all->profile[i]);
 		usleep(100);
-		i++;
-	}
-}
-
-void	join_threads(void)
-{
-	int		i;
-	t_init	*all;
-
-	all = iniit_t();
-	i = 0;
-	while (i < all->nbr_of_philo)
-	{
-		pthread_join(all->philos[i], NULL);
 		i++;
 	}
 }
@@ -88,15 +74,25 @@ int	check_life(void)
 int	main(int ac, char **av)
 {
 	t_init	*all;
+	int		i;
 
+	if (ac != 5 && ac != 6)
+	{
+		printf("Error: Number of arguments not valid\n");
+		return (1);
+	}
 	all = iniit_t();
 	if (secend_check(ac, av) == 2 || init_args(ac, av) == 2)
 		return (1);
 	profil_init();
-	pthread_mutex_init(&all->write_lock, NULL);
 	creat_threads();
 	if (check_life() == 1)
 		return (1);
-	join_threads();
+	i = 0;
+	while (i < all->nbr_of_philo)
+	{
+		pthread_join(all->philos[i], NULL);
+		i++;
+	}
 	return (0);
 }

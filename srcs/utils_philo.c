@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 19:22:08 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/18 19:43:39 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 20:25:28 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	init_args(int ac, char **av)
 
 	i = -1;
 	all = iniit_t();
-	all->done_eat = 0;
+	pthread_mutex_init(&all->write_lock, NULL);
 	all->nbr_of_philo = ft_atoi(av[1]);
 	all->die_time = ft_atoi(av[2]);
 	all->eat_time = ft_atoi(av[3]);

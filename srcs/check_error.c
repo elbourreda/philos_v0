@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 21:40:23 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/07/18 19:37:51 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/07/18 20:22:36 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ int	secend_check(int ac, char **av)
 	int	j;
 
 	i = 0;
-	if (ac != 5 && ac != 6)
-	{
-		printf("Error: Number of arguments not valid\n");
-		return (2);
-	}
 	while (av[++i])
 	{
 		j = 0;
